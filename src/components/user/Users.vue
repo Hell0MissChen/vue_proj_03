@@ -29,18 +29,18 @@
         <!-- 表格区域 -->
         <el-table :data="usersList" border stripe style="width: 100%">
           <el-table-column type="index" label="#"></el-table-column>
-          <el-table-column prop="username" label="姓名"></el-table-column>
+          <el-table-column prop="username" label="姓名" width='120px'></el-table-column>
           <el-table-column prop="email" label="邮箱"></el-table-column>
           <el-table-column prop="mobile" label="电话"></el-table-column>
           <el-table-column prop="role_name" label="角色"></el-table-column>
           <!-- 作用域插槽渲染 -->
-          <el-table-column prop="mg_state" label="状态">
+          <el-table-column prop="mg_state" label="状态" width='100px' align="center">
             <template slot-scope="scope">
               <!-- 通过scope.row拿到当前行的数据{{scope.row}} -->
               <el-switch v-model="scope.row.mg_state" @change="userStateChanged(scope.row)"></el-switch>
             </template>
           </el-table-column>
-          <el-table-column label="操作" width="180px">
+          <el-table-column label="操作" width="200px" align="center">
             <template slot-scope="scope">
               <!-- 修改按钮 -->
               <el-button
@@ -239,7 +239,6 @@ export default {
     },
     //监听状态改变
     async userStateChanged(userinfo) {
-      console.log(userinfo);
       const { data: res } = await this.$http.put(
         `users/${userinfo.id}/state/${userinfo.mg_state}`
       );

@@ -66,6 +66,7 @@ export default {
             duration: 1500
           });
           window.sessionStorage.setItem("token", res.data.token);
+          window.sessionStorage.setItem("username", res.data.username);
           this.$router.push("/home");
         }
       });

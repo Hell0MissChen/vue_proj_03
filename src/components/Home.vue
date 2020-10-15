@@ -6,7 +6,7 @@
         <span>电商管理系统</span>
       </div>
       <div>
-        <span>你好，MrChen</span>
+        <span>你好，{{username}}</span>
         <el-button type="info" @click="logout">注销</el-button>
       </div>
     </el-header>
@@ -78,7 +78,8 @@ export default {
         145: "iconfont icon-baobiao"
       },
       //被激活的链接地址
-      activePath: ""
+      activePath: "",
+      username: window.sessionStorage.getItem("username")
     };
   },
   created() {
